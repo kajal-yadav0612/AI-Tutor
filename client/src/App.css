@@ -1,0 +1,294 @@
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --background-color: #f8fafc;
+  --card-background: white;
+  --text-color: #1f2937;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+.app-header {
+  width: 100%;
+  background-color: var(--card-background);
+  color: var(--primary-color);
+  padding: 1rem 4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header-logo {
+  font-size: 2rem;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding: 2rem 4rem;
+  position: relative;
+}
+
+/* Welcome Screen Styles */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  z-index: 100;
+}
+
+.logo-container {
+  margin-bottom: 2rem;
+}
+
+.teacher-logo {
+  font-size: 6rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.welcome-screen h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.welcome-screen p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+.start-button {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: var(--transition);
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-icon {
+  transition: var(--transition);
+  font-size: 1.2rem;
+}
+
+.start-button:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Chapters Container */
+.chapters-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.chapters-container h2 {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.chapter-card {
+  background: var(--card-background);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chapter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.chapter-number {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.chapter-card h3 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.chapter-card p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.chapter-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  width: 100%;
+  justify-content: center;
+}
+
+.chapter-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .app-main {
+    padding: 2rem;
+  }
+  
+  .chapters-container h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem 2rem;
+  }
+
+  .welcome-screen h1 {
+    font-size: 2rem;
+  }
+  
+  .welcome-screen p {
+    font-size: 1.1rem;
+  }
+  
+  .teacher-logo {
+    font-size: 4rem;
+  }
+  
+  .start-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .chapters-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .chapter-card {
+    padding: 2rem;
+  }
+  
+  .chapter-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-main {
+    padding: 1rem;
+  }
+  
+  .welcome-screen {
+    padding: 1rem;
+  }
+  
+  .chapter-card {
+    padding: 1.5rem;
+  }
+}
